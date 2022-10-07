@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "1bc95807-e140-4b42-b12f-008a438c17aa",
+		"name": "Spring WebFLux-Proyecto1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18152215"
+	},
+	"item": [
+		{
+			"name": "Lista todo cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/account/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"account",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Cuenta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/account/f2041d83-4d7d-469f-9de1-e88c451d6b5f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"account",
+						"f2041d83-4d7d-469f-9de1-e88c451d6b5f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar cuenta por fecha de apertura",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/account/findStartDate/2022.09.16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"account",
+						"findStartDate",
+						"2022.09.16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Config Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://root:s3cr3t@localhost:8888/wallet-service/default",
+					"protocol": "http",
+					"auth": {
+						"user": "root",
+						"password": "s3cr3t"
+					},
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"wallet-service",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista todos los tipos de cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/typeAccount/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"typeAccount",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listo un tipo de cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/typeAccount/AHO2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"typeAccount",
+						"AHO2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar tipo cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"code\": \"AHO1\",\r\n        \"description\": \"Ahorro: libre de comisión por mantenimiento y con un límite máximo de movimientos mensuales.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 10,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 1,\r\n        \"countBusiness\": 0,\r\n        \"amountStart\":0.0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/operation/typeAccount/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"typeAccount",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar lista de tipos de cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"code\": \"AHO4\",\r\n        \"description\": \"VIP - Cuenta de ahorro que requiere un monto mínimo de promedio diario cada mes. Adicionalmente, para solicitar este producto el cliente debe tener una tarjeta de crédito con el banco al momento de la creación de la cuenta.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 99999,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 99999,\r\n        \"countBusiness\": 0,\r\n        \"amountStart\":0.0,\r\n        \"codeRequired\": \"CRE\"\r\n    },\r\n    {\r\n        \"code\": \"AHO1\",\r\n        \"description\": \"Ahorro: libre de comisión por mantenimiento y con un límite máximo de movimientos mensuales.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 10,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 1,\r\n        \"countBusiness\": 0,\r\n        \"amountStart\":0.0\r\n    },\r\n    {\r\n        \"code\": \"AHO2\",\r\n        \"description\": \"Cuenta corriente: posee comisión de mantenimiento y sin límite de movimientos mensuales.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 99999,\r\n        \"amountCommission\": 1.0,\r\n        \"countPerson\": 1,\r\n        \"countBusiness\": 99999,\r\n        \"amountStart\":10.0\r\n    },\r\n    {\r\n        \"code\": \"AHO3\",\r\n        \"description\": \"Plazo fijo: libre de comisión por mantenimiento, solo permite un movimiento de retiro o depósito en un día específico del mes.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 0,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 99999,\r\n        \"countBusiness\": 0,\r\n        \"amountStart\":0.0\r\n    },\r\n    {\r\n        \"code\": \"CRE1\",\r\n        \"description\": \"Personal: solo se permite un solo crédito por persona.\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 0,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 1,\r\n        \"countBusiness\": 0,\r\n        \"amountStart\":0.0\r\n    },\r\n    {\r\n        \"code\": \"CRE2\",\r\n        \"description\": \"Empresarial: se permite más de un crédito por empresa\",\r\n        \"status\": \"A\",\r\n        \"countLimitOperation\": 0,\r\n        \"amountCommission\": 0.0,\r\n        \"countPerson\": 0,\r\n        \"countBusiness\": 1,\r\n        \"amountStart\":0.0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/operation/typeAccount/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"typeAccount",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar tipo cuenta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/typeAccount/AHO1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"typeAccount",
+						"AHO1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro cuenta banco - activo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountModel\":{\r\n        \"numberAccount\":\"1234567809\",\r\n        \"type\": {\r\n            \"code\":\"AHO3\"\r\n        },\r\n        \"startDate\":\"2022.09.16\",\r\n        \"status\":\"A\",\r\n        \"endDate\":null,\r\n        \"amount\":250.50,\r\n        \"coinType\":\"PEN\"\r\n    },\r\n    \"clientModel\":{\r\n        \"codeClient\":\"895b3346-5091-4465-b6ed-7b9f3b8411f8\",\r\n        \"typeClient\":\"N\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/operation/account/bank",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"account",
+						"bank"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/actuator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator-health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro VIP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountModel\":{\r\n        \"id\":\"1\",\r\n        \"numberAccount\":\"12345\",\r\n        \"type\": {\r\n            \"code\":\"VIP1\"\r\n        },\r\n        \"startDate\":\"2022.09.16\",\r\n        \"status\":\"A\",\r\n        \"endDate\":null,\r\n        \"amount\":250.50,\r\n        \"coinType\":\"PEN\"\r\n    },\r\n    \"clientModel\":{\r\n        \"codeClient\":\"123456789\",\r\n        \"typeClient\":\"N\",\r\n        \"status\":\"T\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/operation/account/bank",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"account",
+						"bank"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro nueva tarjeta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codeClient\": \"895b3346-5091-4465-b6ed-7b9f3b8411f8\",\r\n  \"typeCart\": \"AHO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/operation/cartClient/createCard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"cartClient",
+						"createCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar tarjeta con id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/cartClient/fb00cdc0-47d6-433f-9aff-d93e188a5c74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"cartClient",
+						"fb00cdc0-47d6-433f-9aff-d93e188a5c74"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar tarjeta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/cartClient/card/4152530884953751",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"cartClient",
+						"card",
+						"4152530884953751"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar tarjeta por hash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/cartClient/hs/a84f088d7f8c3838010af36a900b0dbd22ae3cc4439ab8a724a40ad48c30e0c3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"cartClient",
+						"hs",
+						"a84f088d7f8c3838010af36a900b0dbd22ae3cc4439ab8a724a40ad48c30e0c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista 10 movimientos por tarjeta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/operation/cartClient/movements/4152195099104223",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"operation",
+						"cartClient",
+						"movements",
+						"4152195099104223"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registro redis -type document",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"EXT\",\r\n    \"title\":\"EXT\",\r\n    \"description\":\"Carnet de extranjeria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/wallet/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"wallet",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista todo redis- type document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/wallet/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"wallet",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register client wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numberDocument\": \"1234567\",\r\n    \"typeDocument\": \"DNI\",\r\n    \"numberPhone\": \"900000001\",\r\n    \"imeiPhone\":\"123456-465\",\r\n    \"email\":\"test@gmail.com\",\r\n    \"amount\": 0.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/wallet/client/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"wallet",
+						"client",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

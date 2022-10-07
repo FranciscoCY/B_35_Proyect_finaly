@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "d954bc2a-7ee1-453c-8174-1e9e10fb4ec1",
+		"name": "Proyecto 1 BC35",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12726236"
+	},
+	"item": [
+		{
+			"name": "Operaciones",
+			"item": [
+				{
+					"name": "movement Card Debit",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get saldo principal account",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "asignar cuenta principal",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

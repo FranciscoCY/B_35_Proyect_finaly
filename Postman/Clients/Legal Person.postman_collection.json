@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "5b7a42ea-ed61-41a2-99a5-1c6aaa3b051f",
+		"name": "Legal Person",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Legal Person",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Legal Person Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/legalPerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"legalPerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Legal Person Ruc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/legalPerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"legalPerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Legal Person Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/legalPerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"legalPerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Legal Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"ruc\":2759060471245,\r\n    \"businessName\":\"Castillo S.A.C.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/legalPerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"legalPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Legal Person",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ruc\":2759060471245,\r\n    \"businessName\":\"Castillo S.A.P.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/legalPerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"legalPerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

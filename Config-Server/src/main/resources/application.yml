@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/FranciscoCY/B_35_Proyect_finaly.git
+          searchPaths: Config-Data
+          username: FranciscoCY
+          password: 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
+
+  security:
+    user:
+      name: root
+      password: s3cr3t

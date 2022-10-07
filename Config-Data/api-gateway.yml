@@ -1,0 +1,27 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: clients-service
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/api/**
+        - id: operation-services
+          uri: http://localhost:8010/
+          predicates:
+            - Path=/operation/**
+        - id: wallet-services
+          uri: http://localhost:8020/
+          predicates:
+            - Path=/wallet/**

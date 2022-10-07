@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "9cdac756-ae2d-4730-9c80-2e302d81635d",
+		"name": "Clients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Clients Juridicos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/legal",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"legal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Natural",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/natural",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"natural"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Natural (ID)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/natural/20a503cb-1b6c-4d52-aa0d-dd4d34a08a8b",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"natural",
+						"20a503cb-1b6c-4d52-aa0d-dd4d34a08a8b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Natural (DOCUMENT NUMBER)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/natural/documentNumber/75906047",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"natural",
+						"documentNumber",
+						"75906047"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Natural (NAMES)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/natural/documentNumber/75906047",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"natural",
+						"documentNumber",
+						"75906047"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Juridicos (ID)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/legal/caee77b0-b3dc-43ab-ad01-f05f1e378c78",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"legal",
+						"caee77b0-b3dc-43ab-ad01-f05f1e378c78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Juridicos (RUC)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/legal/ruc/2337164317",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"legal",
+						"ruc",
+						"2337164317"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Juridicos (BUSINESS NAME)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"idTypePerson\":1,\r\n    \"idPerson\":32,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients/legal/businessName/Castillo Rodriguez S.A.",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"legal",
+						"businessName",
+						"Castillo Rodriguez S.A."
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/clients/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients IdTypePerson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/clients/findByIdTypePerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"findByIdTypePerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clients IdPerson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8002/api/clients/findByIdTypePerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients",
+						"findByIdTypePerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Clients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"idTypePerson\":2,\r\n    \"idPerson\":3,\r\n    \"mail\":\"123123@asdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/clients",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Product Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Wallabe Men's Suede Shoe\",\r\n    \"description\":\"Comfort and tendency do not have to be at odds. This suede wallabee style shoe is all you need for marathon work days. With soft suede design and stitched details, it is perfect to combine with jeans\",\r\n    \"price\":32,\r\n    \"category\":{\"id\":1,\"name\":\"shoes\"}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8091/products/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

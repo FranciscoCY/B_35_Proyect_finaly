@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "5623ee2e-c69d-4384-9053-508294481e27",
+		"name": "clients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23461862"
+	},
+	"item": [
+		{
+			"name": "clients",
+			"item": [
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "updateNatural",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": \"789794ca-0041-4d79-93fc-4603179ab7a8\",\r\n        \"documentNumber\": 45162478,\r\n        \"documentType\": 1,\r\n        \"names\": \"Pedro\",\r\n        \"lastNames\": \"Rojas Talavera\",\r\n        \"gender\": \"masculino\",\r\n        \"mail\": \"pedro@mail.com\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/naturalPerson",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"naturalPerson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "deleteNaturalbyId",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8002/api/naturalPerson/5e245c68-9ef3-4fc7-ab4b-bc9e06e86b3b",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"naturalPerson",
+										"5e245c68-9ef3-4fc7-ab4b-bc9e06e86b3b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteClient",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\t\"idTypePerson\": 1,\r\n\t\t\"idPerson\": 70859655,\r\n\t\t\"mail\": \"miguel@mail.com\"\r\n\t}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/clients/edf7b4ba-1086-4177-a79c-1ee5de9af42b",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"clients",
+										"edf7b4ba-1086-4177-a79c-1ee5de9af42b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add",
+					"item": [
+						{
+							"name": "addNatural",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n         \"documentNumber\": 65842596,\r\n        \"documentType\": 1,\r\n        \"names\": \"Miguel\",\r\n        \"lastNames\": \"Diaz Valdez\",\r\n        \"gender\": \"masculino\",\r\n        \"mail\": \"miguel@gmail.com\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/naturalPerson",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"naturalPerson"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addLegal",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"ruc\": 20100789123,\r\n    \"businessName\": \"EMPRESA CUATRO\",\r\n    \"mail\": \"cautt@mail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/legalPerson",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"legalPerson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Find",
+					"item": [
+						{
+							"name": "findAllLegal",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/clients/legal",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"clients",
+										"legal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAllNatural",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8002/api/clients/natural",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"clients",
+										"natural"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findNaturalByDNI",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8002/api/clients/natural/documentNumber/23457458",
+									"host": [
+										"localhost"
+									],
+									"port": "8002",
+									"path": [
+										"api",
+										"clients",
+										"natural",
+										"documentNumber",
+										"23457458"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

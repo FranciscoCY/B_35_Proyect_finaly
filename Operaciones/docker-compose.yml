@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  springboot:
+    build: .
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/Operation
+    container_name: micro-operation
+    ports:
+      - 8010:8010
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - myNetwork
+  mongo:
+    image: mongo
+    container_name: micro-mongodb
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    networks:
+      - myNetwork
+networks:
+  myNetwork:
+    driver: bridge   

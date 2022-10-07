@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "0dc8ec9d-43a3-49f6-aebd-4014f61f1bdc",
+		"name": "Natural Person",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Legal Person Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"documentNumber\":75906047,\r\n    \"documentType\":1,\r\n    \"names\": \"Juan\",\r\n    \"lastNames\": \"Castillo\",\r\n    \"gender\": \"Masculino\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/api/naturalPerson/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"naturalPerson",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

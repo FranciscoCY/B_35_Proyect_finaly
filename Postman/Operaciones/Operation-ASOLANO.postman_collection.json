@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "cea3b04a-8616-4ddb-a16c-913a862a6a19",
+		"name": "Operation-ASOLANO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23461862"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "account/bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountModel\":{\r\n        \"numberAccount\":\"123456\",\r\n        \"type\":{\r\n                \"code\":\"AHO1\",\r\n                \"description\": \"Pasivo - Cuentas Bancarias\",\r\n                \"status\":\"A\",\r\n                \"countLimitOperation\":\"1\",\r\n                \"amountCommission\":\"10.00\",\r\n                \"countPerson\":\"0\",\r\n                \"countBusiness\":\"0\"\r\n                },\r\n        \"startDate\":\"2022.09.20\",\r\n        \"status\":\"A\",\r\n        \"endDate\":null,\r\n        \"amount\":500.00,\r\n        \"coinType\":\"PEN\"\r\n    },\r\n    \"clientModel\":{\r\n        \"codeClient\":\"0327ebad-f4ef-4fe8-8d9f-6edc0f2328b5\",\r\n        \"numberAccount\":\"123456\",\r\n        \"typeClient\":\"N\",\r\n        \"status\":\"T\",\r\n        \"typeAccount\":\"AHO\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/api/account/bank",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"account",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/api/account/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"account",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byClient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/api/account/client/0327ebad-f4ef-4fe8-8d9f-6edc0f2328b5",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"account",
+								"client",
+								"0327ebad-f4ef-4fe8-8d9f-6edc0f2328b5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/api/account/client/0327ebad-f4ef-4fe8-8d9f-6edc0f2328b5",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"account",
+								"client",
+								"0327ebad-f4ef-4fe8-8d9f-6edc0f2328b5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "between",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/operation/account/between/2022.09.01/2022.09.30",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"operation",
+								"account",
+								"between",
+								"2022.09.01",
+								"2022.09.30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "betweenDetail",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "deuda",
+			"item": [
+				{
+					"name": "Crear Deuda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numberAccount\":\"408535551732729\",\r\n    \"amount\": 250.0,\r\n    \"state\":\"P\",\r\n    \"expirationDate\":\"2022.10.31\",\r\n    \"issueDate\":\"2022.10.01\",\r\n    \"codeCredit\":\"CRE1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/operation/debt",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"operation",
+								"debt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deuda por Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/operation/debt/pendingDebt/50c6924b-67ec-4e53-97ce-d633ea05f1f7",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"operation",
+								"debt",
+								"pendingDebt",
+								"50c6924b-67ec-4e53-97ce-d633ea05f1f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagar Deuda por idDeuda",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
