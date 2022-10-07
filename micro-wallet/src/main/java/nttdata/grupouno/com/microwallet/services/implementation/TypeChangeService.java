@@ -1,6 +1,7 @@
 package nttdata.grupouno.com.microwallet.services.implementation;
 
 import java.util.Date;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class TypeChangeService implements ITypeChangeService {
 
     @Override
     public Mono<TypeChangeModel> register(TypeChangeModel model) {
+        model.setId(UUID.randomUUID().toString());
         return typeChangeRespositories.save(model);
     }
 

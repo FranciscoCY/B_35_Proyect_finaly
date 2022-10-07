@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
@@ -58,5 +60,10 @@ public class ClientWalletService implements IClientWalletService {
     @Override
     public Mono<ClientWalletModel> findById(String id) {
         return clientWalletRepositories.findById(id);
+    }
+
+    @Override
+    public Flux<ClientWalletModel> findAll() {
+        return clientWalletRepositories.findAll();
     }
 }

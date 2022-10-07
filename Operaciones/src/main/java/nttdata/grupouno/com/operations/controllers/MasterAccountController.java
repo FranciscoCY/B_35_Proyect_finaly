@@ -37,12 +37,8 @@ public class MasterAccountController {
     private IAccountClientService accountClientService;
     @Autowired
     private IDebtClientService debtClientService;
-    private final KafkaProducerService kafkaProducerService;
-
     @Autowired
-    MasterAccountController(KafkaProducerService kafkaProducerService) {
-        this.kafkaProducerService = kafkaProducerService;
-    }
+    private KafkaProducerService kafkaProducerService;
 
     public Mono<ResponseEntity<Map<String, Object>>> fallbackBank(RuntimeException runtimeException){
         Map<String, Object> response = new HashMap<>();

@@ -2,6 +2,7 @@ package nttdata.grupouno.com.microwallet.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.WebExchangeBindException;
 
@@ -99,18 +100,49 @@ public class BootCoinController {
             })).log();
     }
 
-    @PutMapping(value="/proceedExchange")
-    public BootCoinDetailModel postMethodName(@RequestParam String id) {
+    @PutMapping(value="/proceedExchange/{id}")
+    public Mono<ResponseEntity<Map<String, Object>>> postMethodName(@PathVariable String id) {
+        Map<String, Object> response = new HashMap<>();
 
-        return null;
+        return bootCoinDetailService.getById(id)
+            .flatMap(x -> {
+                if(!x.getStatus().equals("S"))
+                {
+                    response.put("validRequest", "la solicitud ya fue procesada el día: ".concat(x.getDateAccept()));
+                    return Mono.empty();
+                }
+                return Mono.just(x);
+            })
+            .flatMap(
+                x ->  bootCoinDetailService.update(x).flatMap(y -> {
+                        response.put("transaction", y.getNumberTransaction());
+                        response.put("detail", y);
+                        return Mono.just(ResponseEntity.accepted().body(response));
+                    })
+                    .switchIfEmpty(Mono.defer(() -> {
+                        response.put("valid", "La transacción no pudo ser procesada, por favor de verificar sus saldos.");
+                        return Mono.empty();
+                    }))
+            )
+            .switchIfEmpty(Mono.just(ResponseEntity.badRequest().body(response)))
+            .onErrorResume(ex -> Mono.just(ex).cast(WebExchangeBindException.class)
+            .flatMap(e -> Mono.just(e.getFieldErrors()))
+            .flatMapMany(Flux::fromIterable).map(DefaultMessageSourceResolvable::getDefaultMessage)
+            .collectList()
+            .flatMap(list -> {
+                response.put("error", list);
+                return Mono.just(ResponseEntity.badRequest().body(response));
+            })).log();
     }
+
+    /// Obtener los pendientes
     
     @GetMapping("/all")
     public Flux<BootCoinDetailModel> getAllDetail(){
         return bootCoinDetailService.getAll();
     }
 
-    @GetMapping("/{id}}")
+    @GetMapping("/{id}")
     public Mono<BootCoinDetailModel> getById(@RequestParam String id){
         return bootCoinDetailService.getById(id);
     }

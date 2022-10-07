@@ -31,7 +31,6 @@ public class BootCoinDetailModel {
     @NotBlank
     private String modePay; // Y: Yanqui - T: Transferencia
     private String dateAccept;
-    @NotBlank
     private String status; // S: Solicitado - A: Aceptado - C: Cancelado
     private String numberTransaction;
 }

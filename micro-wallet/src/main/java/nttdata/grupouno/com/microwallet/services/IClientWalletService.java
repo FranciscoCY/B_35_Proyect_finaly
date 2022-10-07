@@ -1,6 +1,7 @@
 package nttdata.grupouno.com.microwallet.services;
 
 import nttdata.grupouno.com.microwallet.models.ClientWalletModel;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface IClientWalletService {
@@ -8,4 +9,5 @@ public interface IClientWalletService {
     Mono<ClientWalletModel> findByNumberDocumentAndTypeDocument(String numberDocument, String typeDocument);
     Mono<ClientWalletModel> findByNumberPhone(String number);
     Mono<ClientWalletModel> findById(String id);
+    Flux<ClientWalletModel> findAll();
 }

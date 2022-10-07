@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import nttdata.grupouno.com.microwallet.models.BootCoinDetailModel;
 import nttdata.grupouno.com.microwallet.repositories.IBootCoinDetailRepositories;
+import nttdata.grupouno.com.microwallet.repositories.IClientWalletRepositories;
 import nttdata.grupouno.com.microwallet.services.IBootCoinDetailService;
 import nttdata.grupouno.com.microwallet.util.Util;
 import reactor.core.publisher.Flux;
@@ -17,6 +18,8 @@ import reactor.core.publisher.Mono;
 public class BootCoinDetailService implements IBootCoinDetailService {
     @Autowired
     private IBootCoinDetailRepositories bootCoinDetailRepositorie;
+    @Autowired
+    private IClientWalletRepositories clienteWallerRepositorie;
 
     @Override
     public Flux<BootCoinDetailModel> getAll() {
@@ -48,7 +51,79 @@ public class BootCoinDetailService implements IBootCoinDetailService {
 
     @Override
     public Mono<BootCoinDetailModel> update(BootCoinDetailModel model) {
-        return bootCoinDetailRepositorie.save(model);
+        model.setNumberTransaction(UUID.randomUUID().toString());
+
+        if(!model.getModePay().equals("Y")){
+            return bootCoinDetailRepositorie.save(model)
+                .doOnSuccess(x -> {
+                    /// Validar la transferencia con kafka
+                });
+        }
+
+        Double amountCompra = model.getAmountTypeChange() / model.getAmountConvert(); // lo que necesito para comprar BootCoint
+
+        //dsiminuye mi saldo y aumente mi bootcoint
+        if(model.getTypeOperation().equals("C")){ 
+            return clienteWallerRepositorie.findById(model.getCodeWalletRequest())
+                .flatMap(
+                    x -> {
+                        if(amountCompra < x.getAmount()) Mono.empty();
+                        if(x.getAmountBootCoin() == null) x.setAmountBootCoin(0.00);
+                        
+                        x.setAmount(x.getAmount() - amountCompra);
+                        x.setAmountBootCoin(x.getAmountBootCoin() + model.getAmountConvert());
+                        return Mono.just(x);
+                }).flatMap(x -> {
+                        return clienteWallerRepositorie.findById(model.getCodeWalletResponse())
+                            .flatMap(y -> {
+                                if(y.getAmountBootCoin() < model.getAmountConvert()){
+                                    return Mono.empty();
+                                }
+                                y.setAmountBootCoin(y.getAmountBootCoin() - model.getAmountConvert());
+                                y.setAmount(y.getAmount() + amountCompra);
+                                return Mono.just(y);
+                            })
+                            .flatMap(y -> clienteWallerRepositorie.save(x).flatMap(z -> Mono.just(y)))
+                            .flatMap(y -> clienteWallerRepositorie.save(y).flatMap(z -> Mono.just(x)))
+                            .flatMap(y -> {
+                                model.setStatus("A");
+                                model.setDateAccept(Util.dateToString(new Date()));
+                                return bootCoinDetailRepositorie.save(model);
+                            });
+                })
+                .switchIfEmpty(Mono.empty());
+        }
+
+        Double amountVenta = model.getAmountConvert() * model.getAmountConvert(); // lo que voy a vender
+        /// BootCoin -> soles
+
+        return clienteWallerRepositorie.findById(model.getCodeWalletResponse())
+                .flatMap(
+                    x -> {
+                        if(amountVenta < x.getAmount()) Mono.empty();
+                        if(x.getAmountBootCoin() == null) x.setAmountBootCoin(0.00);
+                        
+                        x.setAmount(x.getAmount() - amountCompra);
+                        x.setAmountBootCoin(x.getAmountBootCoin() + model.getAmountConvert());
+                        return Mono.just(x);
+                }).flatMap(x -> {
+                        return clienteWallerRepositorie.findById(model.getCodeWalletRequest())
+                            .flatMap(y -> {
+                                if(y.getAmountBootCoin() < model.getAmountConvert()){
+                                    return Mono.empty();
+                                }
+                                y.setAmountBootCoin(y.getAmountBootCoin() - model.getAmountConvert());
+                                y.setAmount(y.getAmount() + amountVenta);
+                                return Mono.just(y);
+                            })
+                            .flatMap(y -> clienteWallerRepositorie.save(x).flatMap(z -> Mono.just(y)))
+                            .flatMap(y -> clienteWallerRepositorie.save(y).flatMap(z -> Mono.just(x)))
+                            .flatMap(y -> {
+                                model.setStatus("A");
+                                return bootCoinDetailRepositorie.save(model);
+                            });
+                })
+                .switchIfEmpty(Mono.empty());
     }
 
 }

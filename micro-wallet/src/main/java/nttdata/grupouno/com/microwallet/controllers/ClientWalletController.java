@@ -4,10 +4,13 @@ import nttdata.grupouno.com.microwallet.models.ClientWalletModel;
 import nttdata.grupouno.com.microwallet.services.IClientWalletService;
 import nttdata.grupouno.com.microwallet.services.ITypeDocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
@@ -22,6 +25,11 @@ public class ClientWalletController {
     private IClientWalletService clientWalletService;
     @Autowired
     private ITypeDocumentService typeDocumentService;
+
+    @GetMapping("/")
+    public Flux<ClientWalletModel> findAll(){
+        return clientWalletService.findAll();
+    }
 
     @PostMapping("/")
     public Mono<Map<String, Object>> registerClient(@RequestBody @Valid Mono<ClientWalletModel> request){
