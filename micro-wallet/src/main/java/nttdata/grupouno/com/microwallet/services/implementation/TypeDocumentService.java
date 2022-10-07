@@ -1,6 +1,5 @@
 package nttdata.grupouno.com.microwallet.services.implementation;
 
-import lombok.RequiredArgsConstructor;
 import nttdata.grupouno.com.microwallet.models.TypeDocumentModel;
 import nttdata.grupouno.com.microwallet.repositories.ITypeDocumentRepositories;
 import nttdata.grupouno.com.microwallet.services.ITypeDocumentService;

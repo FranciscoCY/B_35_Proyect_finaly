@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/FranciscoCY/B_35_Proyect_finaly.git
+          uri: https://github.com/FranciscoCY/B_35_Proyect.git
           searchPaths: Config-Data
           username: FranciscoCY
           password: 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

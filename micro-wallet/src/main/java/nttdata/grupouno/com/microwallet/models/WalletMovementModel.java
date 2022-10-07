@@ -27,7 +27,7 @@ public class WalletMovementModel {
     @NotEmpty
     private Character movementType; // R:recibir E:enviar C:consulta
     @NotEmpty
-    private String currency; // PEN - USD
+    private String currency; // PEN - USD // BOC
     private String month;
     private String year;
 }

@@ -31,5 +31,6 @@ public class ClientWalletModel {
     private String email;
     @DecimalMin(value = "0.00", message = "Monto no negativo")
     private Double amount;
+    private Double amountBootCoin;
     private String targetAssociated; // ID: Tarjeta asociada en caso de asociación, caso contrario null por defecto
 }
