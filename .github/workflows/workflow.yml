@@ -1,13 +1,13 @@
 name: Build and deploy JAR app to Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: config-server    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: conf-server-micro    # set this to the name of your Azure Web App
   JAVA_VERSION: '11'                  # set this to the Java version to use
   DISTRIBUTION: zulu                  # set this to the Java distribution
 
 on:
   push:
-    branches: [ "azure_config_server" ]
+    branches: [ "deploy-azure-config-server" ]
   workflow_dispatch:
 
 permissions:
@@ -56,5 +56,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          publish-profile: conf-server-micro.azurewebsites.net
           package: '*.jar'
